@@ -73,5 +73,5 @@ Example
     </html>
 
 ######Important:######
-*  The most inner tag of each slide must contains a pure text. DON'T include HTML tags (e.g. <b>) in your text.
+*  The most inner tag of each slide must contains a pure text. DON'T include HTML tags (e.g. `<b>`) in your text.
 *  It's better to add inline style `display:none` to your slider to avoid the list to be displayed at startup.
