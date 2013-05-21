@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Typer - Pure Javascript Typing Slider</title>
+  <style type="text/css">
+    body {background-color:#eee;}
+    a {color:#00e;}
+    ul {list-style-type:none; height:20px; padding:3px 10px;}
+    .wrapper {width:500px; margin:0 auto;}
+    #container {padding-top:100px;}
+    #intro {font-size:24px; font-weight:bold; text-align:center; text-transform:uppercase; letter-spacing:8px;}
+    #messages {border:1px solid grey; background-color:white;}
+    #about {margin-top:20px; font:10px tahoma; line-height:1.6; color:#555; text-align:center;}
+    #about a {color:#555; text-decoration:none; border-bottom:1px dotted #555;}
+  </style>
+  <script type="text/javascript" src="typer.js"></script>
+</head>
+<body>
+  <div id="container">
+
+    <div class="wrapper">
+      <ul id="intro" style="display:none; font:bold 20px;">
+        <li>Typer</li>
+      </ul>
+      <ul id="messages" style="display:none;">
+        <li>Typer is a pure JavaScript utility to create typing text effect over a list of items.</li>
+        <li>It would be useful for text advertising, quotes or breaking news.</li>
+        <li>Typer is a good replacement for obsolete HTML "marquee" too.</li>
+        <li><a href="">It also supports XHTML sildes like this.</a></li>
+        <li>There are cool options to set for example typing speed, cursor and so on.</li>
+        <li>If move your mouse cursor over the slider, it will pause!</li>
+      </ul>
+    </div>
+
+    <div id="about" class="wrapper">
+      <div><strong>Typer</strong> v1.0</div>
+      <div>&copy; 2013 <a href="http://mohsenkhahani.ir/" target="_blank" id="mkh">Mohsen Khahani</a></div>
+    </div>
+
+  </div>
+</body>
+<script type="text/javascript">
+  new Typer('intro', {slideDelay:1000, typeDelay:400, cursor:'', loop:false});
+  setTimeout( function () {
+      new Typer('messages', {slideDelay:3000, typeDelay:40});
+  }, 4000);
+</script>
+</html>
