@@ -1,5 +1,5 @@
 /**
- * Typer - Pure Javascript Typing Slider, v1.0
+ * jsTyper - Pure Javascript Typing Slider, v1.0
  * Copyright 2013 Mohsen Khahani
  *
  * Licensed under the MIT license
@@ -11,13 +11,13 @@
  *   - Configurable typing speed
  *   - Pause on mouse over
  *
- * http://mohsenkhahani.ir/typer
+ * http://mohsenkhahani.ir/jsTyper
  */
 
 /**
  * Default configuration options
  */
-var typerOptions = {
+var jsTyperOptions = {
     slideDelay : 2000,  /* Time delay between slides in millisecond */
     typeDelay : 100,    /* Typing delay in millisecond */
     blinking : 2,       /* Number of cursor blinkings before typing starts */
@@ -26,15 +26,15 @@ var typerOptions = {
 };
 
 /**
- * Typer base class
+ * jsTyper base class
  */
-function Typer(elementId, options) {
+function jsTyper(elementId, options) {
     options = options || {};
-    this.typeDelay = (options.typeDelay !== undefined)? options.typeDelay : typerOptions.typeDelay;
-    this.slideDelay = (options.slideDelay !== undefined)? options.slideDelay : typerOptions.slideDelay;
-    this.blinking = (options.blinking !== undefined)? options.blinking : typerOptions.blinking;
-    this.cursor = (options.cursor !== undefined)? options.cursor : typerOptions.cursor;
-    this.loop = (options.loop !== undefined)? options.loop : typerOptions.loop;
+    this.typeDelay = (options.typeDelay !== undefined)? options.typeDelay : jsTyperOptions.typeDelay;
+    this.slideDelay = (options.slideDelay !== undefined)? options.slideDelay : jsTyperOptions.slideDelay;
+    this.blinking = (options.blinking !== undefined)? options.blinking : jsTyperOptions.blinking;
+    this.cursor = (options.cursor !== undefined)? options.cursor : jsTyperOptions.cursor;
+    this.loop = (options.loop !== undefined)? options.loop : jsTyperOptions.loop;
     this.slides = [];
     this.timer = null;
     this.typing = false;
@@ -47,7 +47,7 @@ function Typer(elementId, options) {
 /**
  * Initiates typer
  */
-Typer.prototype.init = function(id) {
+jsTyper.prototype.init = function(id) {
     function getInnerElement(el) {
         if (el.children.length === 0) {
             return el;
@@ -85,7 +85,7 @@ Typer.prototype.init = function(id) {
 /**
  * Starts typer
  */
-Typer.prototype.play = function() {
+jsTyper.prototype.play = function() {
     var slide = this.slides[this.currIdx],
         prevIdx = (this.currIdx === 0) ?
             this.slides.length - 1 : this.currIdx - 1;
@@ -110,7 +110,7 @@ Typer.prototype.play = function() {
 /**
  * Blinks cursor before type begins
  */
-Typer.prototype.blink = function(slide, index) {
+jsTyper.prototype.blink = function(slide, index) {
     var self = this;
     slide.outer.style.display = '';
     if (index < this.blinking) {
@@ -124,7 +124,7 @@ Typer.prototype.blink = function(slide, index) {
 /**
  * Types inner text of the givven slide
  */
-Typer.prototype.type = function(slide, index) {
+jsTyper.prototype.type = function(slide, index) {
     var self = this;
     slide.inner.innerHTML = slide.text.substr(0, index) + this.cursor;
     if (index < slide.text.length) {
@@ -143,7 +143,7 @@ Typer.prototype.type = function(slide, index) {
 /**
  * Adds pause & play functionality
  */
-Typer.prototype.addEvents = function(el) {
+jsTyper.prototype.addEvents = function(el) {
     var self = this;
     this.resume = function() {
         self.playing = true;
@@ -167,7 +167,7 @@ Typer.prototype.addEvents = function(el) {
 /**
  * Removes pause & play functionality
  */
-Typer.prototype.removeEvents = function(el) {
+jsTyper.prototype.removeEvents = function(el) {
     if (el.removeEventListener) {
         el.removeEventListener('mouseover', this.pause, false);
         el.removeEventListener('mouseout', this.resume, false);
